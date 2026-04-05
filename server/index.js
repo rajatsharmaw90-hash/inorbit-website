@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
+import {Client} from "pg";
 import cors from "cors";
 
 
@@ -12,15 +12,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ urlencoded: true}))
 
 // Connect DB
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "simarDB",
-  password: "123456",
-  port: 5432,
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
 });
 
-db.connect();
+client.connect();
+
 
 // API to save data
 app.post("/contact", async (req, res) => {
