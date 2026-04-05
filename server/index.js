@@ -2,9 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import pkg from "pg"; // Common fix for ES modules
-import dotenv from "dotenv";
 
-dotenv.config(); // Load environment variables
 
 const { Client } = pkg;
 
