@@ -27,7 +27,7 @@ function Contact() {
     console.log(formData)
 
     try {
-      const response = await fetch("https://inorbit-website.onrender.com", {
+      const response = await fetch("https://inorbit-website-7.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -27,6 +27,8 @@ client.connect()
 app.post("/contact", async (req, res) => {
   const { first, last, email, mobile, enquiry } = req.body;
 
+  console.log(req.body);
+
   try {
     await client.query(
       "INSERT INTO contacts(first_name, last_name, email, mobile, enquiry) VALUES($1, $2, $3, $4, $5)",
